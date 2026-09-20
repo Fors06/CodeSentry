@@ -1,0 +1,88 @@
+* { box-sizing: border-box; }
+
+body {
+    font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    background: #0f1117;
+    color: #e6e6e6;
+}
+
+.topbar {
+    background: #161925;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    border-bottom: 1px solid #2a2e3d;
+}
+
+.topbar h1 { margin: 0; font-size: 1.4rem; }
+.subtitle { color: #8a8f9c; font-size: 0.9rem; }
+.back-link { color: #6ea8fe; text-decoration: none; margin-left: auto; }
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.card {
+    background: #161925;
+    border: 1px solid #2a2e3d;
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+
+.card h2 { margin-top: 0; font-size: 1.1rem; color: #c9cdd8; }
+
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 0.6rem; border-bottom: 1px solid #2a2e3d; }
+th { color: #8a8f9c; font-weight: 500; font-size: 0.85rem; }
+tr:hover { background: #1c1f2b; cursor: pointer; }
+
+.finding {
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    border-radius: 6px;
+    border-left: 4px solid #555;
+    background: #1c1f2b;
+}
+.severity-high, .severity-critical { border-left-color: #ff6b6b; }
+.severity-medium { border-left-color: #ffb454; }
+.severity-low { border-left-color: #6ea8fe; }
+.source-tag {
+    float: right;
+    font-size: 0.75rem;
+    color: #8a8f9c;
+    text-transform: uppercase;
+}
+
+#askForm { display: flex; gap: 0.5rem; }
+#questionInput {
+    flex: 1;
+    padding: 0.6rem;
+    border-radius: 6px;
+    border: 1px solid #2a2e3d;
+    background: #0f1117;
+    color: #e6e6e6;
+}
+button {
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    border: none;
+    background: #6ea8fe;
+    color: #0f1117;
+    font-weight: 600;
+    cursor: pointer;
+}
+.answer-box {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #0f1117;
+    border-radius: 6px;
+    white-space: pre-wrap;
+    min-height: 2rem;
+}

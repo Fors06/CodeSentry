@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <title>CodeSentry — Детали PR</title>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+    <header class="topbar">
+        <h1>🛡️ CodeSentry</h1>
+        <a href="/index.html" class="back-link">← Назад к дашборду</a>
+    </header>
+    <main class="container">
+        <section class="card">
+            <h2 id="prTitle">Загрузка...</h2>
+            <div id="findingsList"></div>
+        </section>
+    </main>
+    <script src="/js/api.js"></script>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const prId = params.get("id");
+
+        async function loadPrDetail() {
+            const pr = await api.getPr(prId);
+            document.getElementById("prTitle").textContent = `${pr.title} (${pr.repo})`;
+
+            const findingsData = await api.getFindings(prId);
+            const list = document.getElementById("findingsList");
+            if (findingsData.findings.length === 0) {
+                list.innerHTML = "<p>Находок не обнаружено 🎉</p>";
+                return;
+            }
+            list.innerHTML = findingsData.findings
+                .map(f => `<div class="finding severity-${f.severity}">
+                    <strong>${f.file}:${f.line}</strong> [${f.severity}] — ${f.message}
+                    <span class="source-tag">${f.source}</span>
+                </div>`)
+                .join("");
+        }
+        loadPrDetail();
+    </script>
+</body>
+</html>

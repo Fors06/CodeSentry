@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <title>CodeSentry — Дашборд</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+</head>
+<body>
+    <header class="topbar">
+        <h1>🛡️ CodeSentry</h1>
+        <span class="subtitle">Локальный офлайн ИИ-ассистент код-ревью</span>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2>Тренд технического долга</h2>
+            <canvas id="techDebtChart" height="80"></canvas>
+        </section>
+
+        <section class="card">
+            <h2>Pull Requests</h2>
+            <table id="prsTable">
+                <thead>
+                    <tr><th>Заголовок</th><th>Автор</th><th>Репозиторий</th><th>Статус</th></tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+
+        <section class="card">
+            <h2>Спросить у ИИ про код</h2>
+            <form id="askForm">
+                <input type="text" id="questionInput" placeholder="Например: где используется класс PaymentService?" />
+                <button type="submit">Спросить</button>
+            </form>
+            <div id="askAnswer" class="answer-box"></div>
+        </section>
+    </main>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/dashboard.js"></script>
+    <script src="/js/charts.js"></script>
+</body>
+</html>
